@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-// T-02: pantalla de inicio de sesión con usuario y contraseña obligatorios.
-// La revisión de las credenciales se agrega en T-03.
+// T-02 y T-03: inicio de sesión con campos obligatorios y mensaje de error.
+// Por ahora se usa un usuario fijo; HU-16 y la persistencia de datos lo reforzarán.
 function Login({ onLogin }) {
   const [usuario, setUsuario] = useState("");
   const [contrasena, setContrasena] = useState("");
@@ -16,6 +16,12 @@ function Login({ onLogin }) {
     }
     if (contrasena === "") {
       nuevos.push("La contraseña es obligatoria.");
+    }
+    if (
+      nuevos.length === 0 &&
+      !(usuario === "admin" && contrasena === "1234")
+    ) {
+      nuevos.push("Usuario o contraseña incorrectos.");
     }
 
     setErrores(nuevos);

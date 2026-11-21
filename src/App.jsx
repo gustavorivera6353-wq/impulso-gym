@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import Login from "./components/Login";
 
 function App() {
+  const [usuario, setUsuario] = useState(null);
+
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Impulso Gym</h1>
-      <p>Plataforma de administración de un gimnasio.</p>
+      {!usuario ? (
+        <Login onLogin={setUsuario} />
+      ) : (
+        <>
+          <h2>Bienvenido, {usuario}</h2>
+        </>
+      )}
     </div>
   );
 }

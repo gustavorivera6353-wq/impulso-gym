@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Login from "./components/Login";
+import Socios from "./components/Socios";
 
 function App() {
   const [usuario, setUsuario] = useState(null);
@@ -11,6 +12,7 @@ function App() {
       ) : (
         <>
           <h2>Bienvenido, {usuario}</h2>
+          <Socios />
         </>
       )}
     </div>

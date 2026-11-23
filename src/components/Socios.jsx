@@ -1,12 +1,10 @@
 import React, { useState } from "react";
+import { useAlmacen, SOCIOS_INICIALES } from "../datos";
 
-// T-04 y T-05: lista de socios con su rol y formulario para agregar socios.
+// HU-02 (T-04 y T-05): lista de socios con su rol y formulario para agregar socios.
+// Los datos se guardan en el navegador para que no se pierdan al recargar.
 function Socios() {
-  const [socios, setSocios] = useState([
-    { id: 1, nombre: "Ana López", rol: "Socio" },
-    { id: 2, nombre: "Carlos Ruiz", rol: "Entrenador" },
-    { id: 3, nombre: "Mariana Díaz", rol: "Recepción" },
-  ]);
+  const [socios, setSocios] = useAlmacen("socios", SOCIOS_INICIALES);
   const [nombre, setNombre] = useState("");
   const [rol, setRol] = useState("");
   const [errores, setErrores] = useState([]);
@@ -33,9 +31,9 @@ function Socios() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "30px" }}>
+    <div>
       <h2>Gestión de Socios</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
+      <ul>
         {socios.map((s) => (
           <li key={s.id}>
             {s.nombre} — <strong>{s.rol}</strong>
@@ -43,7 +41,7 @@ function Socios() {
         ))}
       </ul>
 
-      <form onSubmit={agregarSocio} style={{ marginTop: "20px" }}>
+      <form onSubmit={agregarSocio}>
         <input
           type="text"
           placeholder="Nombre"
@@ -59,7 +57,7 @@ function Socios() {
         <button type="submit">Agregar socio</button>
       </form>
       {errores.map((mensaje) => (
-        <p key={mensaje} role="alert" style={{ color: "crimson" }}>
+        <p key={mensaje} role="alert">
           {mensaje}
         </p>
       ))}

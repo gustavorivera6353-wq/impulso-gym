@@ -8,9 +8,11 @@ Es un proyecto individual del Equipo Dinamita (UDG Plus) y se desarrolla con Scr
 
 | Rol | Integrante |
 | --- | --- |
-| Product Owner | Felix Ulises Franco Godinez |
-| Scrum Master | Brenda Janeth Garcia Mendoza |
-| Desarrollador | Gustavo Emmanuel Rivera Orozco |
+| Product Owner | Gustavo Emmanuel Rivera Orozco |
+| Scrum Master | Felix Ulises Franco Godinez |
+| Desarrolladora | Brenda Janeth Garcia Mendoza |
+
+Los roles rotan respecto al proyecto ReportaCasa (decisión del 21/11/2026).
 
 ## Tecnologías
 

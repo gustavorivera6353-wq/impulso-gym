@@ -30,7 +30,7 @@ body {
 }
 
 #root::before {
-  content: "IMPULSO GYM";
+  content: "GESTIÓN DE GIMNASIO";
   display: block;
   margin: 1.5rem 0 2rem;
   padding: 1rem;
@@ -39,7 +39,7 @@ body {
   color: #111;
   font-weight: 900;
   font-size: 1.05rem;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.25em;
 }
 
 h1 { font-size: 1.8rem; margin: 0.5rem 0 1rem; }
@@ -48,7 +48,7 @@ h2 {
   font-size: 1.3rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin: 2rem 0 1rem;
+  margin: 1.2rem 0 1rem;
 }
 
 h2::after {

@@ -72,3 +72,7 @@ Los datos viven solo en el estado de React, así que se pierden al recargar la p
 ## Referencia
 
 Schwaber, K. y Sutherland, J. (2020). La Guía de Scrum. https://scrumguides.org
+
+## Demo en línea
+
+https://gustavorivera6353-wq.github.io/impulso-gym/

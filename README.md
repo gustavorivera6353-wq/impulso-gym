@@ -32,43 +32,70 @@ Otros comandos:
 - `npm run build`: genera la versión de producción.
 - `npm run lint`: revisa el código con Oxlint.
 
-Para entrar al sistema se usa el usuario de prueba `admin` con contraseña `1234`. Es un usuario fijo y temporal; la historia HU-16 agrega la validación de contraseñas.
+## Cuentas de prueba
+
+| Rol | Usuario | Contraseña |
+| --- | --- | --- |
+| Administrador | `admin` | `1234` (temporal; el sistema pide cambiarla en Mi cuenta) |
+| Recepción | `recepcion` | `Recepcion1` |
+| Entrenador | `carlos` | `Entrenador1` |
+| Socio | `ana` | `Socio1234` |
+
+Además, cualquier persona puede crear una cuenta de socio desde la pantalla de inicio de sesión.
 
 ## Funciones del sistema
 
-En desarrollo (Sprint 1):
+Cada rol ve solo las secciones que le corresponden.
 
-- Inicio de sesión (HU-01).
-- Administración de socios y roles (HU-02).
-
-Planeadas: validación de contraseñas, consulta de membresías, pagos, avisos y promociones, y creación de clases. El detalle completo está en el Product Backlog.
+- **Inicio de sesión y cuenta (HU-01, HU-16):** campos obligatorios, mensajes de error, creación de cuentas y cambio de contraseña con reglas de seguridad (8 caracteres, mayúscula, minúscula y número).
+- **Socios y roles (HU-02):** lista de socios con su rol y alta de nuevos socios.
+- **Membresías (HU-03) y planes (HU-05):** consulta de vigencia (Activa, Por vencer, Vencida) y administración de planes.
+- **Pagos (HU-04):** registro y consulta de pagos; cada pago crea o extiende la membresía.
+- **Avisos y promociones (HU-06, HU-07):** publicación por administración y recepción, consulta para todos.
+- **Clases (HU-08, HU-09, HU-10):** creación con horario y cupo, reservación y cancelación por parte del socio con membresía vigente.
+- **Quejas y sugerencias (HU-11, HU-12):** registro por el socio y seguimiento de su estado.
+- **Asistencia (HU-13, HU-14):** registro por el entrenador e historial del socio.
+- **Reportes (HU-15):** ingresos por plan y por mes, membresías, asistencia por clase y descarga de pagos en CSV.
 
 ## Estructura del proyecto
 
 ```text
 src/
-  App.jsx                  Pantalla principal
+  App.jsx                 Pantalla principal y menú por rol
+  datos.js                Almacenamiento en el navegador, fechas y reglas
+  ui.jsx                  Mensajes y etiquetas compartidas
+  estilos.css             Estilo visual
   components/
-    Login.jsx              Inicio de sesión
-    Socios.jsx             Socios y roles
+    Login.jsx             Inicio de sesión y registro
+    Socios.jsx            Socios y roles
+    Membresias.jsx        Vigencia de membresías
+    Planes.jsx            Planes de membresía
+    Pagos.jsx             Pagos
+    Avisos.jsx            Avisos y promociones
+    Clases.jsx            Clases y reservaciones
+    Asistencia.jsx        Asistencia
+    Quejas.jsx            Quejas y sugerencias
+    Reportes.jsx          Reportes
+    Cuenta.jsx            Cambio de contraseña
 ```
 
 ## Avance por Sprint
 
 | Sprint | Fechas | Meta | Estado |
 | --- | --- | --- | --- |
-| 1 | 17/11/2026 al 30/11/2026 | Repositorio con la base, inicio de sesión y registro de socios | En curso |
-| 2 | 01/12/2026 al 14/12/2026 | Validar contraseñas y consultar membresías | Planeado |
-| 3 | 15/12/2026 al 28/12/2026 | Registrar pagos y publicar avisos | Planeado |
-| 4 | 29/12/2026 al 12/01/2027 | Consultar avisos y crear clases | Planeado |
+| 1 | 17/11/2026 al 30/11/2026 | Repositorio con la base, inicio de sesión y registro de socios | Completado; HU-01 y HU-02 aceptadas el 22/11/2026 |
+| 2 | 01/12/2026 al 14/12/2026 | Validar contraseñas y consultar membresías | Funcionalidad adelantada el 22 y 23/11/2026; en revisión del Product Owner |
+| 3 | 15/12/2026 al 28/12/2026 | Registrar pagos y publicar avisos | Funcionalidad adelantada el 22 y 23/11/2026; en revisión del Product Owner |
+| 4 | 29/12/2026 al 12/01/2027 | Consultar avisos y crear clases | Funcionalidad adelantada el 22 y 23/11/2026; en revisión del Product Owner |
 
 ## Limitaciones actuales
 
-Los datos viven solo en el estado de React, así que se pierden al recargar la página.
+Los datos se guardan en el navegador (localStorage), no en un servidor: cada navegador tiene sus propios datos. Las contraseñas también se guardan ahí sin cifrar, por lo que el sistema es una demostración académica y no debe usarse con datos reales.
 
 ## Forma de trabajo
 
 - Una rama y un Pull Request por tarea técnica, con el nombre `feature/T-xx-descripcion`.
+- Las historias HU-03 a HU-16 se entregaron adelantadas en una sola rama (`feature/sprints-2-a-4`).
 - El Product Backlog y los Sprints se llevan en Trello y en el documento del equipo.
 
 ## Referencia
